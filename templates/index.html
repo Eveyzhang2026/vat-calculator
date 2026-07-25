@@ -4,37 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>增值税税负动态测算表</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>📊 增值税税负动态测算表</h1>
+            <div class="header-meta">VAT TAX BURDEN CALCULATOR</div>
+            <h1>增值税税负<br>动态测算表</h1>
+            <div class="header-line" aria-hidden="true"></div>
             <p class="subtitle">基于《税法》规定的增值税计算与税负分析工具</p>
         </header>
 
         <main>
             <!-- 输入区域 -->
             <section class="input-section">
-                <h2>基础信息录入</h2>
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2>基础信息录入</h2>
+                </div>
                 <form id="vatForm">
                     <div class="form-grid">
                         <div class="form-group">
-                            <label for="industry">选择行业：</label>
+                            <label for="industry">选择行业</label>
                             <select id="industry" name="industry" required>
-                                <option value="">-- 请选择行业 --</option>
+                                <option value="">请选择行业</option>
                             </select>
                             <small id="industryDesc" class="help-text"></small>
                         </div>
 
                         <div class="form-group" id="levyRateGroup" style="display:none;">
-                            <label for="levyRate">征收率：</label>
+                            <label for="levyRate">征收率</label>
                             <select id="levyRate" name="levyRate"></select>
                             <small class="help-text">小规模纳税人可选征收率</small>
                         </div>
 
                         <div class="form-group" id="exemptionGroup" style="display:none;">
-                            <label for="exemptionThreshold">免税起征点：</label>
+                            <label for="exemptionThreshold">免税起征点</label>
                             <select id="exemptionThreshold" name="exemptionThreshold">
                                 <option value="100000">月销售额10万以下免征</option>
                                 <option value="300000">季销售额30万以下免征</option>
@@ -43,31 +51,31 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="salesAmount">销售额（元）：</label>
+                            <label for="salesAmount">销售额（元）</label>
                             <input type="number" id="salesAmount" name="salesAmount" 
                                    min="0" step="0.01" placeholder="请输入销售额" required>
                         </div>
 
                         <div class="form-group" id="inputTaxGroup">
-                            <label for="inputTax">进项税额（元）：</label>
+                            <label for="inputTax">进项税额（元）</label>
                             <input type="number" id="inputTax" name="inputTax" 
                                    min="0" step="0.01" placeholder="一般纳税人可填写">
                         </div>
 
                         <div class="form-group" id="otherDeductionsGroup">
-                            <label for="otherDeductions">其他抵扣（元）：</label>
+                            <label for="otherDeductions">其他抵扣（元）</label>
                             <input type="number" id="otherDeductions" name="otherDeductions" 
                                    min="0" step="0.01" placeholder="如加计抵减等">
                         </div>
 
                         <div class="form-group" id="addDeductionGroup" style="display:none;">
-                            <label for="additionalDeductionRate">加计抵减：</label>
+                            <label for="additionalDeductionRate">加计抵减</label>
                             <select id="additionalDeductionRate" name="additionalDeductionRate"></select>
                             <small class="help-text">生活性/现代服务业可加计抵减</small>
                         </div>
 
                         <div class="form-group">
-                            <label for="additionalTaxRate">附加税费率：</label>
+                            <label for="additionalTaxRate">附加税费率</label>
                             <select id="additionalTaxRate" name="additionalTaxRate">
                                 <option value="0.12">市区 12%（城建7%+教育3%+地方2%）</option>
                                 <option value="0.10">县城/镇 10%（城建5%+教育3%+地方2%）</option>
@@ -78,7 +86,7 @@
                         <div class="form-group checkbox-group">
                             <label>
                                 <input type="checkbox" id="isTaxInclusive" name="isTaxInclusive">
-                                销售额含税
+                                <span>销售额含税</span>
                             </label>
                         </div>
                     </div>
@@ -86,25 +94,20 @@
                     <div id="errorMsg" class="error-msg" style="display:none;"></div>
 
                     <div class="button-group">
-                        <button type="submit" class="btn btn-primary">
-                            🧮 立即计算
-                        </button>
-                        <button type="button" id="compareBtn" class="btn btn-secondary">
-                            📊 多行业对比
-                        </button>
-                        <button type="button" id="resetBtn" class="btn btn-secondary">
-                            🔄 重置
-                        </button>
-                        <button type="button" id="exportBtn" class="btn btn-secondary" style="display:none;">
-                            📤 导出结果
-                        </button>
+                        <button type="submit" class="btn btn-primary">立即计算</button>
+                        <button type="button" id="compareBtn" class="btn btn-secondary">多行业对比</button>
+                        <button type="button" id="resetBtn" class="btn btn-tertiary">重置</button>
+                        <button type="button" id="exportBtn" class="btn btn-secondary" style="display:none;">导出结果</button>
                     </div>
                 </form>
             </section>
 
             <!-- 结果展示区域 -->
             <section id="resultSection" class="result-section" style="display: none;">
-                <h2>计算结果</h2>
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2>计算结果</h2>
+                </div>
                 
                 <div class="result-card">
                     <div class="result-header">
@@ -114,54 +117,54 @@
 
                     <div class="result-body">
                         <div class="result-item">
-                            <span class="label">适用税率/征收率：</span>
+                            <span class="label">适用税率 / 征收率</span>
                             <span id="resultTaxRate" class="value">-</span>
                         </div>
 
                         <div class="result-item" id="rowOutputTax">
-                            <span class="label">销项税额：</span>
+                            <span class="label">销项税额</span>
                             <span id="resultOutputTax" class="value highlight">-</span>
                         </div>
 
                         <div class="result-item" id="rowInputTax">
-                            <span class="label">进项税额：</span>
+                            <span class="label">进项税额</span>
                             <span id="resultInputTax" class="value">-</span>
                         </div>
 
                         <div class="result-item" id="rowOtherDeductions">
-                            <span class="label">其他抵扣：</span>
+                            <span class="label">其他抵扣</span>
                             <span id="resultOtherDeductions" class="value">-</span>
                         </div>
 
                         <div class="result-item" id="rowAddDeduction">
-                            <span class="label">加计抵减：</span>
+                            <span class="label">加计抵减</span>
                             <span id="resultAddDeduction" class="value">-</span>
                         </div>
 
                         <div class="result-item">
-                            <span class="label">不含税销售额：</span>
+                            <span class="label">不含税销售额</span>
                             <span id="resultSales" class="value">-</span>
                         </div>
 
                         <div class="result-divider"></div>
 
                         <div class="result-item large">
-                            <span class="label">应纳税额：</span>
+                            <span class="label">应纳税额</span>
                             <span id="resultVatPayable" class="value primary">-</span>
                         </div>
 
                         <div class="result-item">
-                            <span class="label">附加税费：</span>
+                            <span class="label">附加税费</span>
                             <span id="resultSurcharge" class="value">-</span>
                         </div>
 
                         <div class="result-item large">
-                            <span class="label">税负率（增值税）：</span>
+                            <span class="label">税负率（增值税）</span>
                             <span id="resultTaxBurden" class="value warning">-</span>
                         </div>
 
                         <div class="result-item large">
-                            <span class="label">综合税负率：</span>
+                            <span class="label">综合税负率</span>
                             <span id="resultCompositeBurden" class="value warning">-</span>
                         </div>
                     </div>
@@ -169,40 +172,56 @@
 
                 <!-- 税务筹划建议 -->
                 <div id="suggestionsSection" class="suggestions-section" style="display: none;">
-                    <h3>💡 税务筹划建议</h3>
+                    <div class="section-header small">
+                        <span class="section-number">03</span>
+                        <h3>税务筹划建议</h3>
+                    </div>
                     <div id="suggestionsList"></div>
                 </div>
 
                 <!-- 动态测算图表 -->
                 <div id="chartSection" class="chart-section" style="display:none;">
-                    <h3>📈 动态测算：税负随进项税额变化</h3>
+                    <div class="section-header small">
+                        <span class="section-number">04</span>
+                        <h3>动态测算：税负随进项税额变化</h3>
+                    </div>
                     <canvas id="burdenChart"></canvas>
                 </div>
 
                 <!-- 计算公式说明 -->
                 <div class="formula-section">
-                    <h3>📖 计算公式说明</h3>
+                    <div class="section-header small">
+                        <span class="section-number">05</span>
+                        <h3>计算公式说明</h3>
+                    </div>
                     <div class="formula-box">
-                        <p><strong>一般纳税人：</strong></p>
-                        <ul>
-                            <li>销项税额 = 销售额 × 税率</li>
-                            <li>应纳税额 = 销项税额 - 进项税额 - 其他抵扣 - 加计抵减</li>
-                            <li>附加税费 = 应纳税额 × 附加税费率（留抵/免征为0）</li>
-                            <li>税负率 = 应纳税额 ÷ 销售额 × 100%</li>
-                            <li>综合税负率 =（应纳税额 + 附加税费）÷ 销售额 × 100%</li>
-                        </ul>
-                        <p><strong>小规模纳税人：</strong></p>
-                        <ul>
-                            <li>应纳税额 = 销售额 × 征收率（月/季销售额未超起征点免征）</li>
-                            <li>不得抵扣进项税额</li>
-                        </ul>
+                        <div class="formula-block">
+                            <p class="formula-title">一般纳税人</p>
+                            <ul>
+                                <li>销项税额 = 销售额 × 税率</li>
+                                <li>应纳税额 = 销项税额 − 进项税额 − 其他抵扣 − 加计抵减</li>
+                                <li>附加税费 = 应纳税额 × 附加税费率（留抵/免征为0）</li>
+                                <li>税负率 = 应纳税额 ÷ 销售额 × 100%</li>
+                                <li>综合税负率 =（应纳税额 + 附加税费）÷ 销售额 × 100%</li>
+                            </ul>
+                        </div>
+                        <div class="formula-block">
+                            <p class="formula-title">小规模纳税人</p>
+                            <ul>
+                                <li>应纳税额 = 销售额 × 征收率（月/季销售额未超起征点免征）</li>
+                                <li>不得抵扣进项税额</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- 多行业对比 -->
             <section id="compareSection" class="compare-section" style="display:none;">
-                <h2>📊 多行业税负对比</h2>
+                <div class="section-header">
+                    <span class="section-number">06</span>
+                    <h2>多行业税负对比</h2>
+                </div>
                 <p class="help-text">基于上方填写的销售额与进项，横向比较各行业的应纳税额与税负率</p>
                 <div class="table-wrap">
                     <table id="compareTable">
@@ -224,7 +243,8 @@
         </main>
 
         <footer>
-            <p>© 2026 增值税税负动态测算系统 | 学习用途</p>
+            <div class="footer-line" aria-hidden="true"></div>
+            <p>增值税税负动态测算系统 · 学习用途</p>
         </footer>
     </div>
 

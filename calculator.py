@@ -286,27 +286,4 @@ class VATCalculator:
         return suggestions
 
 
-# 测试代码
-if __name__ == '__main__':
-    calculator = VATCalculator()
-    
-    # 测试：制造业，销售额100万，进项10万
-    result = calculator.calculate_vat(
-        industry_id='manufacturing',
-        sales_amount=1000000,
-        input_tax=100000
-    )
-    
-    print("=" * 60)
-    print("增值税税负动态测算表")
-    print("=" * 60)
-    print(f"行业：{result['industry_name']}")
-    print(f"纳税人类型：{result['taxpayer_type']}")
-    print(f"适用税率：{result['tax_rate']:.0%}")
-    print("-" * 60)
-    print(f"销售额：¥{result['sales_amount']:,.2f}")
-    print(f"销项税额：¥{result['output_tax']:,.2f}")
-    print(f"进项税额：¥{result['input_tax']:,.2f}")
-    print(f"应纳税额：¥{result['vat_payable']:,.2f}")
-    print(f"税负率：{result['tax_burden_rate']:.2f}%")
-    print("=" * 60)
+

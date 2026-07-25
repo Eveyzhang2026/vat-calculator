@@ -187,10 +187,10 @@ def compare_industries():
 
 if __name__ == '__main__':
     print("=" * 60)
-    print("🚀 增值税税负动态测算系统启动中...")
+    print("增值税税负动态测算系统启动中...")
     print("=" * 60)
-    print("📊 访问地址: http://127.0.0.1:5000")
-    print("🛑 按 Ctrl+C 停止服务")
+    print("访问地址: http://127.0.0.1:5000")
+    print("按 Ctrl+C 停止服务")
     print("=" * 60)
     
     app.run(debug=True, host='127.0.0.1', port=5000)

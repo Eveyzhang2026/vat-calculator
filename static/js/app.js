@@ -232,19 +232,35 @@ function drawChart(results) {
         data: {
             labels: labels,
             datasets: [
-                { label: '税负率(%)', data: burden, borderColor: '#667eea',
-                  backgroundColor: 'rgba(102,126,234,0.1)', yAxisID: 'y', fill: true, tension: 0.2 },
-                { label: '应纳税额(元)', data: payable, borderColor: '#f59e0b',
-                  backgroundColor: 'rgba(245,158,11,0.1)', yAxisID: 'y1', fill: false, tension: 0.2 }
+                { label: '税负率(%)', data: burden, borderColor: '#c9a96e',
+                  backgroundColor: 'rgba(201,169,110,0.12)', yAxisID: 'y', fill: true, tension: 0.2 },
+                { label: '应纳税额(元)', data: payable, borderColor: '#f4f1ea',
+                  backgroundColor: 'rgba(244,241,234,0.06)', yAxisID: 'y1', fill: false, tension: 0.2 }
             ]
         },
         options: {
             responsive: true,
             interaction: { mode: 'index', intersect: false },
+            plugins: {
+                legend: {
+                    labels: { color: '#f4f1ea', font: { family: 'Inter' } }
+                }
+            },
             scales: {
-                y: { type: 'linear', position: 'left', title: { display: true, text: '税负率(%)' } },
-                y1: { type: 'linear', position: 'right', title: { display: true, text: '应纳税额(元)' },
-                      grid: { drawOnChartArea: false } }
+                x: {
+                    ticks: { color: '#9aa6bf' },
+                    grid: { color: 'rgba(201,169,110,0.1)' }
+                },
+                y: {
+                    type: 'linear', position: 'left', title: { display: true, text: '税负率(%)', color: '#c9a96e' },
+                    ticks: { color: '#c9a96e' },
+                    grid: { color: 'rgba(201,169,110,0.1)' }
+                },
+                y1: {
+                    type: 'linear', position: 'right', title: { display: true, text: '应纳税额(元)', color: '#f4f1ea' },
+                    ticks: { color: '#f4f1ea' },
+                    grid: { drawOnChartArea: false }
+                }
             }
         }
     });
@@ -310,8 +326,8 @@ function displaySuggestions(suggestions) {
 }
 
 function getTypeLabel(type) {
-    const labels = { 'warning': '⚠️ 提醒', 'info': 'ℹ️ 提示', 'success': '✅ 优势' };
-    return labels[type] || '💡 建议';
+    const labels = { 'warning': '提醒', 'info': '提示', 'success': '优势' };
+    return labels[type] || '建议';
 }
 
 async function compareIndustries() {
@@ -406,7 +422,7 @@ function showLoading() {
 function hideLoading() {
     const btn = document.querySelector('#vatForm button[type="submit"]');
     btn.disabled = false;
-    btn.textContent = '🧮 立即计算';
+    btn.textContent = '立即计算';
 }
 
 function showError(message) {
