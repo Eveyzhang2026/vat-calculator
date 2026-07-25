@@ -1,0 +1,99 @@
+{
+  "industries": [
+    {
+      "id": "manufacturing",
+      "name": "制造业",
+      "taxpayer_type": "general",
+      "output_rate": 0.13,
+      "description": "销售货物、加工修理修配劳务"
+    },
+    {
+      "id": "wholesale_retail",
+      "name": "批发零售业",
+      "taxpayer_type": "general",
+      "output_rate": 0.13,
+      "description": "商品批发和零售"
+    },
+    {
+      "id": "transportation",
+      "name": "交通运输业",
+      "taxpayer_type": "general",
+      "output_rate": 0.09,
+      "description": "陆路、水路、航空运输服务"
+    },
+    {
+      "id": "construction",
+      "name": "建筑业",
+      "taxpayer_type": "general",
+      "output_rate": 0.09,
+      "description": "建筑安装、装饰装修"
+    },
+    {
+      "id": "real_estate",
+      "name": "房地产业",
+      "taxpayer_type": "general",
+      "output_rate": 0.09,
+      "description": "房地产开发、销售"
+    },
+    {
+      "id": "telecom_basic",
+      "name": "电信业（基础）",
+      "taxpayer_type": "general",
+      "output_rate": 0.09,
+      "description": "基础电信服务"
+    },
+    {
+      "id": "telecom_value",
+      "name": "电信业（增值）",
+      "taxpayer_type": "general",
+      "output_rate": 0.06,
+      "additional_deduction_options": [0.10, 0.15],
+      "description": "增值电信服务"
+    },
+    {
+      "id": "finance",
+      "name": "金融业",
+      "taxpayer_type": "general",
+      "output_rate": 0.06,
+      "description": "贷款、保险、金融商品转让"
+    },
+    {
+      "id": "modern_service",
+      "name": "现代服务业",
+      "taxpayer_type": "general",
+      "output_rate": 0.06,
+      "additional_deduction_options": [0.10, 0.15],
+      "description": "研发、信息技术、文化创意等"
+    },
+    {
+      "id": "lifestyle_service",
+      "name": "生活服务业",
+      "taxpayer_type": "general",
+      "output_rate": 0.06,
+      "additional_deduction_options": [0.10, 0.15],
+      "description": "餐饮、住宿、教育、医疗等"
+    },
+    {
+      "id": "intangible_asset",
+      "name": "无形资产",
+      "taxpayer_type": "general",
+      "output_rate": 0.06,
+      "additional_deduction_options": [0.10, 0.15],
+      "description": "技术转让、商标著作权等"
+    },
+    {
+      "id": "small_scale",
+      "name": "小规模纳税人",
+      "taxpayer_type": "small",
+      "output_rate": 0.03,
+      "rate_options": [0.01, 0.03, 0.05],
+      "description": "年销售额500万以下，可选1%/3%/5%征收率"
+    }
+  ],
+  "tax_calculation_notes": {
+    "general_formula": "应纳税额 = 销项税额 - 进项税额",
+    "output_tax": "销项税额 = 销售额 × 税率",
+    "tax_burden_rate": "税负率 = 应纳税额 ÷ 销售额 × 100%",
+    "small_scale_formula": "应纳税额 = 销售额 × 征收率"
+  }
+}

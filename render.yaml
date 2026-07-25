@@ -1,0 +1,12 @@
+# Render 一键部署配置
+# 在 Render 控制台「New Web Service」连上本仓库后，Render 会自动读取此文件。
+services:
+  - type: web
+    name: vat-calculator
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -w 4 -b 0.0.0.0:$PORT app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"

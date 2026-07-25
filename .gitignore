@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+venv/
+.venv/
+env/
+.pytest_cache/
+
+# 运行时 / 日志
+app.log
+*.log
+
+# 操作系统
+.DS_Store
