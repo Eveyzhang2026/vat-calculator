@@ -14,8 +14,7 @@
 |-----------------------------------|----------------------------------------|-------------------------------------|
 | ![主界面](docs/screenshots/main.png) | ![多行业对比](docs/screenshots/compare.png) | ![税负曲线](docs/screenshots/chart.png) |
 
-> 🔗 在线 Demo：https://evey.pythonanywhere.com/（部署于 PythonAnywhere 免费版）
-> 效果截图已收录于 `docs/screenshots/`（`main.png` / `compare.png` / `chart.png`）。
+> 🔗 在线 Demo：https://evey.pythonanywhere.com/
 
 ## 📋 项目简介
 
@@ -314,7 +313,7 @@ vat_calculator/
 ├── requirements.txt        # 依赖包（含 Flask、gunicorn）
 ├── README.md              # 项目文档
 ├── LICENSE                # 学习用途声明
-├── .gitignore             # 忽略 venv/缓存/日志/本地文档
+├── .gitignore             # 忽略 venv/缓存/日志
 ├── data/
 │   └── industry_rates.json # 行业税率配置（数据驱动，改配置不改代码）
 ├── templates/
@@ -327,15 +326,11 @@ vat_calculator/
 ├── tests/
 │   └── test_calculator.py # 单元测试（pytest，11 项全过）
 └── docs/
-    ├── article-draft.md    # 文章底稿（仅本地，未纳入仓库）
-    ├── retrospective.md    # 项目复盘（仅本地，未纳入仓库）
     └── screenshots/        # 效果截图
         ├── main.png        # 主界面
         ├── compare.png     # 多行业对比
         └── chart.png       # 税负曲线
 ```
-
-> 注：`docs/article-draft.md`、`DEPLOY.md`、`docs/retrospective.md`、`docs/screenshots/README.md` 仅保留在本地，未推送到 GitHub。
 
 ## 🧪 单元测试
 
