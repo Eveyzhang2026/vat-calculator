@@ -94,8 +94,8 @@
   - 占位：`![多行业对比](docs/screenshots/compare.png)`
 - [ ] 税负曲线图（Chart.js）
   - 占位：`![税负曲线](docs/screenshots/chart.png)`
-- [ ] 在线 Demo 链接（部署到独立云服务器后的公网地址，见仓库 DEPLOY.md）
-  - 占位：`🔗 在线体验：https://your-demo-url`
+- [x] 在线 Demo 链接（部署到独立云服务器后的公网地址，见仓库 DEPLOY.md）
+  - 链接：`🔗 在线体验：https://evey.pythonanywhere.com/`
 
 ### 5.1 怎么看「税负曲线图」（写给读者，可直接引用）
 

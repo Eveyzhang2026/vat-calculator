@@ -14,8 +14,9 @@
 |-----------------------------------|----------------------------------------|-------------------------------------|
 | ![主界面](docs/screenshots/main.png) | ![多行业对比](docs/screenshots/compare.png) | ![税负曲线](docs/screenshots/chart.png) |
 
+> 🔗 在线 Demo：https://evey.pythonanywhere.com/
 > 截图占位：将实际截图放入 `docs/screenshots/`（见 `docs/article-draft.md` 第 5 节）。
-> 在线 Demo：部署说明见 [DEPLOY.md](DEPLOY.md)。
+> 部署说明见 [DEPLOY.md](DEPLOY.md)。
 
 ## 📋 项目简介
 
@@ -63,7 +64,7 @@
 - **后端**: Python + Flask
 - **前端**: HTML5 + CSS3 + JavaScript
 - **数据格式**: JSON配置
-- **UI设计**: 渐变色现代风格
+- **UI设计**: 深海军蓝 + 骨白 + 金色的机构感风格（衬线标题、细线分隔）
 
 ## 📦 安装步骤
 
