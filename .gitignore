@@ -17,3 +17,4 @@ app.log
 # 仅本地保留，不推送到GitHub
 DEPLOY.md
 docs/screenshots/README.md
+docs/article-draft.md

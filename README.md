@@ -14,9 +14,8 @@
 |-----------------------------------|----------------------------------------|-------------------------------------|
 | ![主界面](docs/screenshots/main.png) | ![多行业对比](docs/screenshots/compare.png) | ![税负曲线](docs/screenshots/chart.png) |
 
-> 🔗 在线 Demo：https://evey.pythonanywhere.com/
-> 截图占位：将实际截图放入 `docs/screenshots/`（见 `docs/article-draft.md` 第 5 节）。
-> 部署说明见 [DEPLOY.md](DEPLOY.md)。
+> 🔗 在线 Demo：https://evey.pythonanywhere.com/（部署于 PythonAnywhere 免费版）
+> 效果截图已收录于 `docs/screenshots/`（`main.png` / `compare.png` / `chart.png`）。
 
 ## 📋 项目简介
 
@@ -310,16 +309,14 @@ POST /api/compare
 
 ```
 vat_calculator/
-├── app.py                  # Flask主应用
-├── calculator.py           # 核心计算逻辑
-├── requirements.txt        # 依赖包（含 gunicorn）
+├── app.py                  # Flask 主应用（生产用 gunicorn 启动）
+├── calculator.py           # 核心计算逻辑（纯函数，可单测）
+├── requirements.txt        # 依赖包（含 Flask、gunicorn）
 ├── README.md              # 项目文档
-├── DEPLOY.md              # 公网部署说明
-├── docs/
-│   ├── article-draft.md    # 文章底稿（存档）
-│   └── screenshots/        # 效果截图（占位）
+├── LICENSE                # 学习用途声明
+├── .gitignore             # 忽略 venv/缓存/日志/本地文档
 ├── data/
-│   └── industry_rates.json # 行业税率配置
+│   └── industry_rates.json # 行业税率配置（数据驱动，改配置不改代码）
 ├── templates/
 │   └── index.html         # 主页模板
 ├── static/
@@ -327,9 +324,18 @@ vat_calculator/
 │   │   └── style.css      # 样式文件
 │   └── js/
 │       └── app.js         # 前端交互逻辑
-└── tests/
-    └── test_calculator.py # 单元测试（pytest）
+├── tests/
+│   └── test_calculator.py # 单元测试（pytest，11 项全过）
+└── docs/
+    ├── article-draft.md    # 文章底稿（仅本地，未纳入仓库）
+    ├── retrospective.md    # 项目复盘（仅本地，未纳入仓库）
+    └── screenshots/        # 效果截图
+        ├── main.png        # 主界面
+        ├── compare.png     # 多行业对比
+        └── chart.png       # 税负曲线
 ```
+
+> 注：`docs/article-draft.md`、`DEPLOY.md`、`docs/retrospective.md`、`docs/screenshots/README.md` 仅保留在本地，未推送到 GitHub。
 
 ## 🧪 单元测试
 
