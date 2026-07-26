@@ -82,4 +82,4 @@ https://你的用户名.pythonanywhere.com
 | Hugging Face Spaces | 不需要 | 需加 Dockerfile，端口 7860 |
 | Render | 新账号需绑卡 | 已弃用：免费实例也要绑卡 |
 
-> 注：原 `render.yaml` 已保留在仓库中，便于迁移到支持 `render.yaml` 的环境时一键部署。
+> 注：本仓库不再包含 Render/Heroku 专属的 `render.yaml` / `Procfile` / `runtime.txt`，部署以本文 PythonAnywhere 步骤为准。

@@ -313,8 +313,6 @@ vat_calculator/
 ├── app.py                  # Flask主应用
 ├── calculator.py           # 核心计算逻辑
 ├── requirements.txt        # 依赖包（含 gunicorn）
-├── Procfile                # 云部署入口（gunicorn）
-├── runtime.txt             # Python 版本声明
 ├── README.md              # 项目文档
 ├── DEPLOY.md              # 公网部署说明
 ├── docs/
